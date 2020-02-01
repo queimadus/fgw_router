@@ -1,0 +1,8 @@
+{
+  "domain": "fgw_router",
+  "name": "fgw_router",
+  "documentation": "https://github.com/queimadus/fgw_router",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": []
+}
