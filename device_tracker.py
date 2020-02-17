@@ -16,7 +16,7 @@ import homeassistant.helpers.config_validation as cv
 _LOGGER = logging.getLogger(__name__)
 
 _DEVICES_REGEX = re.compile(
-    r"(?P<mac>(([0-9A-F]{2}[:-]){5}([0-9A-F]{2})))\s"
+    r"(?P<mac>(([0-9A-F]{2}[:-]){5}([0-9A-F]{2})))\s*\|\s*Yes"
 )
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
