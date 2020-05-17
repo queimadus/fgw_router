@@ -80,16 +80,16 @@ class FGWDeviceScanner(DeviceScanner):
     def get_fgw_data(self):
         """Retrieve data from FGW and return parsed result."""
         try:
-            telnet = telnetlib.Telnet(self.host, self.port)
-            telnet.read_until(b"Login: ")
+            telnet = telnetlib.Telnet(self.host, self.port, 30)
+            telnet.read_until(b"Login: ", 30)
             telnet.write((self.username + "\r\n").encode("ascii"))
-            telnet.read_until(b"Password: ")
+            telnet.read_until(b"Password: ", 30)
             telnet.write((self.password + "\r\n").encode("ascii"))
-            telnet.read_until(b"cli> ")
+            telnet.read_until(b"cli> ", 30)
             devices_result = []
             for i in self.interfaces:
                 telnet.write(("wireless/show-stationinfo --wifi-index=" + str(i) + "\r\n").encode("ascii"))
-                devices_result = devices_result + telnet.read_until(b"cli> ").split(b"\r\n")
+                devices_result = devices_result + telnet.read_until(b"cli> ", 30).split(b"\r\n")
             telnet.write("quit\r\n".encode("ascii"))
         except EOFError:
             _LOGGER.exception("Unexpected response from router")
