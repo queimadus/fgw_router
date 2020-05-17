@@ -91,11 +91,14 @@ class FGWDeviceScanner(DeviceScanner):
                 telnet.write(("wireless/show-stationinfo --wifi-index=" + str(i) + "\r\n").encode("ascii"))
                 devices_result = devices_result + telnet.read_until(b"cli> ", 30).split(b"\r\n")
             telnet.write("quit\r\n".encode("ascii"))
+            telnet.close()
         except EOFError:
             _LOGGER.exception("Unexpected response from router")
+            telnet.close()
             return
         except ConnectionRefusedError:
             _LOGGER.exception("Connection refused by router. Telnet enabled?")
+            telnet.close()
             return
 
         devices = []
