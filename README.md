@@ -5,7 +5,16 @@ Home Assistant device_tracker implementation for Altice Fiber Gateway GR241AG
 
 ### Installation
 It's recommended to install this via [HACS](https://github.com/custom-components/hacs).
-This repository is part of the defaults and can be found by searching for `fgw_router`.
+It isn't part of the defaults but you can add it by going to:
+
+`HACS > Integrations > Custom repositories (on the top-right corner 3 dots)`
+
+and adding:
+
+Repository:<br/>
+`queimadus/fgw_router`<br/>
+Category:<br/>
+`Integration`
 
 ### Configuration
 
