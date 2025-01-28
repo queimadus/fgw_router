@@ -1,0 +1,7 @@
+{
+  "name": "fgw_router",
+  "hacs": "1.0.1",
+  "homeassistant": "0.118.0",
+  "render_readme": true
+  "country": ["PT"]
+}
